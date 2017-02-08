@@ -24,7 +24,24 @@ public class Helper {
 
     public static final String MENU_BACKGROUND_SRC = "resource/image/title.jpg";
     public static final String GAME_PLAY_BACKGROUND_SRC = "resource/image/lvlEditor.png";
+    public static final String PLAYER_SPRITE_SHEET_SRC = "resource/image/player.png";
+    public static final String PLAYER_SPRITE_SRC = "resource/image/player_sprite.png";
 
+    public static final String PLAYER_SPRITE_MOVE_LEFT_SRC = "resource/image/move_left.png";
+    public static final String PLAYER_SPRITE_MOVE_RIGHT_SRC = "resource/image/move_right.png";
+    public static final String PLAYER_SPRITE_MOVE_TOP_SRC = "resource/image/move_top.png";
+    public static final String PLAYER_SPRITE_MOVE_BOTTOM_SRC = "resource/image/move_bottom.png";
 
     public static final String BACKGROUND_SOUND_SRC = "resource/sound/background.wav";
+
+
+    public static final int MOVE_TOP_DIRECTION = 1;
+    public static final int MOVE_RIGHT_DIRECTION = 2;
+    public static final int MOVE_BOTTOM_DIRECTION = 3;
+    public static final int MOVE_LEFT_DIRECTION = 4;
+    public static final int STOP = 0;
+
+    public static final int SPRITE_PLAYER_WIDTH = 60;
+    public static final int SPRITE_PLAYER_HEIGHT = 60;
+    public static final int TURN_OVER_SPEED = 100;
 }
