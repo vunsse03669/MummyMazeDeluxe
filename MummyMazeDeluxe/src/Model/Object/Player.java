@@ -76,25 +76,25 @@ public class Player extends GameObject {
         switch (moveDirection){
             case Helper.MOVE_RIGHT_DIRECTION: {
                if(px >= 0 && px <= Helper.WINDOW_WIDTH)
-                   px += 10;
+                   px += 5;
                 break;
             }
 
             case Helper.MOVE_LEFT_DIRECTION: {
                 if(px >= 0 && px <= Helper.WINDOW_WIDTH)
-                    px -= 10;
+                    px -= 5;
                 break;
             }
 
             case Helper.MOVE_TOP_DIRECTION: {
                 if(px >= 0 && px <= Helper.WINDOW_HEIGHT)
-                    py -= 10;
+                    py -= 5;
                 break;
             }
 
             case Helper.MOVE_BOTTOM_DIRECTION: {
                 if(px >= 0 && px <= Helper.WINDOW_HEIGHT)
-                    py += 10;
+                    py += 5;
                 break;
             }
         }
@@ -103,7 +103,7 @@ public class Player extends GameObject {
 
     @Override
     public void update() {
-        move();
+      //  move();
 
     }
 }

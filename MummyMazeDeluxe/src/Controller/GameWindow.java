@@ -65,7 +65,7 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
     // Key event listener
     @Override
     public void keyTyped(KeyEvent e) {
-
+        gameManager.keyTyped(e.getKeyCode());
     }
 
     @Override
@@ -75,7 +75,7 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        gameManager.keyReleased(e.getKeyCode());
     }
 
     public void update(Graphics g) {

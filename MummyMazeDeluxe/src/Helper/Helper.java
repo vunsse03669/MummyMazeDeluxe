@@ -43,5 +43,5 @@ public class Helper {
 
     public static final int SPRITE_PLAYER_WIDTH = 60;
     public static final int SPRITE_PLAYER_HEIGHT = 60;
-    public static final int TURN_OVER_SPEED = 100;
+    public static final int TURN_OVER_SPEED = 50;
 }

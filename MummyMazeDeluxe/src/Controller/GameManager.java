@@ -38,6 +38,14 @@ public class GameManager {
         stack.peek().keyPressed(k);
     }
 
+    public void keyReleased(int k){
+        stack.peek().keyReleased(k);
+    }
+
+    public void keyTyped(int k){
+        stack.peek().keyTyped(k);
+    }
+
     public void pushToStack(Scene scene) {
         stack.push(scene);
     }

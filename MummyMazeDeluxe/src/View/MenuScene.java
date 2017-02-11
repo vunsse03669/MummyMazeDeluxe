@@ -89,5 +89,11 @@ public class MenuScene extends Scene {
        }
     }
 
+    public void keyReleased(int k){
+
+    }
+
+    public void keyTyped(int k){}
+
 
 }

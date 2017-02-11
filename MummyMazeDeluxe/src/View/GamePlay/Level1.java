@@ -43,23 +43,31 @@ public class Level1 extends Scene {
         switch (k) {
             case KeyEvent.VK_DOWN:{
                 player.setMoveDirection(Helper.MOVE_BOTTOM_DIRECTION);
+                player.move();
                 break;
             }
 
             case KeyEvent.VK_UP:{
                 player.setMoveDirection(Helper.MOVE_TOP_DIRECTION);
+                player.move();
                 break;
             }
 
             case KeyEvent.VK_LEFT: {
                 player.setMoveDirection(Helper.MOVE_LEFT_DIRECTION);
+                player.move();
                 break;
             }
 
             case KeyEvent.VK_RIGHT: {
                 player.setMoveDirection(Helper.MOVE_RIGHT_DIRECTION);
+                player.move();
                 break;
             }
         }
     }
+
+    public void keyReleased(int k){}
+
+    public void keyTyped(int k){}
 }
