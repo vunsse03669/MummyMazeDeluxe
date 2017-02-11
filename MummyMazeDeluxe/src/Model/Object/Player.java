@@ -5,6 +5,7 @@ import Model.Animation;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.HierarchyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,9 @@ public class Player extends GameObject {
     private Animation moveTop;
     private Animation moveBottom;
     private int moveDirection;
+
+    public boolean isMoving;
+    private int moveRange = 0;
 
     public Player(int px, int py) {
         this.px = px;
@@ -45,6 +49,51 @@ public class Player extends GameObject {
     }
 
     public void setMoveDirection(int direction) {
+        //isMoving = true;
+        switch (direction){
+            case Helper.MOVE_BOTTOM_DIRECTION:{
+                if(Helper.getOy(py) >= 5) {
+                    isMoving = false;
+                    return;
+                }
+                else{
+                    isMoving = true;
+                }
+
+                break;
+            }
+            case Helper.MOVE_TOP_DIRECTION:{
+                if(Helper.getOy(py) <= 0) {
+                    isMoving = false;
+                    return;
+                }
+                else{
+                    isMoving = true;
+                }
+                break;
+            }
+            case Helper.MOVE_LEFT_DIRECTION:{
+                if(Helper.getOx(px) <= 0) {
+                    isMoving = false;
+                    return;
+                }
+                else{
+                    isMoving = true;
+                }
+                break;
+            }
+            case Helper.MOVE_RIGHT_DIRECTION:{
+                if(Helper.getOx(px) >= 5) {
+                    isMoving = false;
+                    return;
+                }
+                else{
+                    isMoving = true;
+                }
+                break;
+            }
+        }
+
         moveDirection = direction;
     }
 
@@ -73,37 +122,57 @@ public class Player extends GameObject {
 
     @Override
     public void move() {
+       // this.isMoving = true;
+        moveRange += Helper.MOVE_UNIT;
+
+    if(moveRange >= Helper.MOVE_RANGE + 1){
+        moveRange = 0;
+        isMoving = false;
+        setMoveDirection(Helper.STOP);
+    }
+
+
+
+
         switch (moveDirection){
             case Helper.MOVE_RIGHT_DIRECTION: {
-               if(px >= 0 && px <= Helper.WINDOW_WIDTH)
-                   px += 5;
+
+               if(px >= Helper.getPx(0) && px <= Helper.getPx(5))
+                   px += Helper.MOVE_UNIT;
                 break;
             }
 
             case Helper.MOVE_LEFT_DIRECTION: {
-                if(px >= 0 && px <= Helper.WINDOW_WIDTH)
-                    px -= 5;
+
+                if(px >= Helper.getPx(0) && px <= Helper.getPx(5))
+                    px -= Helper.MOVE_UNIT;
                 break;
             }
 
             case Helper.MOVE_TOP_DIRECTION: {
-                if(px >= 0 && px <= Helper.WINDOW_HEIGHT)
-                    py -= 5;
+                if(py >= Helper.getPy(0) && py <= Helper.getPy(5))
+                    py -= Helper.MOVE_UNIT;
                 break;
             }
 
             case Helper.MOVE_BOTTOM_DIRECTION: {
-                if(px >= 0 && px <= Helper.WINDOW_HEIGHT)
-                    py += 5;
+
+                if(py <= Helper.getPy(5))
+                    py += Helper.MOVE_UNIT;
                 break;
             }
         }
+        System.out.println(""+px+" "+py);
+
 
     }
 
     @Override
     public void update() {
-      //  move();
+
+      if (isMoving){
+          move();
+      }
 
     }
 }

@@ -14,4 +14,12 @@ public abstract class GameObject {
     public abstract void draw(Graphics g);
     public abstract void move();
     public abstract void update();
+
+    protected int getWidthSprite(){
+        return sprite.getWidth();
+    }
+
+    protected int getHeightSprite(){
+        return sprite.getHeight();
+    }
 }

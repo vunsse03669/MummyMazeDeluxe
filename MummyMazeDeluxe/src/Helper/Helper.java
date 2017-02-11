@@ -7,10 +7,13 @@ public class Helper {
     public static final String GAME_TITLE = "Mummy Maze Deluxe";
     public static final int WINDOW_WIDTH = 960;
     public static final int WINDOW_HEIGHT = 720;
-    public static final int FPS = 60;
+    public static final int FPS = 20;
     public static final int FRAME_LOCATION_PX = 200;
     public static final int FRAME_LOCATION_PY = 50;
     public static final String BACKGROUND_SOUND_KEY = "Background_sound";
+
+    public static final int pOX = 320;
+    public static final int pOY = 120;
 
     // Menu
     public static final String MENU_SCENE_START = "START";
@@ -41,7 +44,29 @@ public class Helper {
     public static final int MOVE_LEFT_DIRECTION = 4;
     public static final int STOP = 0;
 
+    public static final int MOVE_UNIT = 1;
+    public static final int MOVE_RANGE = 90;
+
+
     public static final int SPRITE_PLAYER_WIDTH = 60;
     public static final int SPRITE_PLAYER_HEIGHT = 60;
     public static final int TURN_OVER_SPEED = 50;
+
+    public static int getPx(int oX){
+        return pOX+oX * MOVE_RANGE + MOVE_RANGE/2 - 30;
+    }
+
+    public static int getPy(int oY){
+        return pOY+oY * MOVE_RANGE + MOVE_RANGE/2 - 30;
+    }
+
+    public static int getOx(int px) {
+        return (px - pOX) / MOVE_RANGE;
+    }
+
+    public static int getOy(int py){
+        return (py-pOY)/MOVE_RANGE;
+    }
+
+
 }
