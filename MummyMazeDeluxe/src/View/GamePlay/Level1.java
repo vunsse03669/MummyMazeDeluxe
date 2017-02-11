@@ -20,7 +20,7 @@ public class Level1 extends Scene {
 
     public Level1() {
         try {
-            player = new Player(100,100);
+            player = new Player(Helper.getPx(0),Helper.getPy(0));
             background = ImageIO.read(new File(Helper.GAME_PLAY_BACKGROUND_SRC));
         }catch(IOException e){
             e.printStackTrace();
@@ -40,34 +40,41 @@ public class Level1 extends Scene {
 
     @Override
     public void keyPressed(int k) {
+        if (!player.isMoving)
         switch (k) {
             case KeyEvent.VK_DOWN:{
                 player.setMoveDirection(Helper.MOVE_BOTTOM_DIRECTION);
-                player.move();
+                //player.isMoving = true;
+                //player.move();
                 break;
             }
 
             case KeyEvent.VK_UP:{
                 player.setMoveDirection(Helper.MOVE_TOP_DIRECTION);
-                player.move();
+
+                //player.move();
                 break;
             }
 
             case KeyEvent.VK_LEFT: {
                 player.setMoveDirection(Helper.MOVE_LEFT_DIRECTION);
-                player.move();
+
+                //player.move();
                 break;
             }
 
             case KeyEvent.VK_RIGHT: {
                 player.setMoveDirection(Helper.MOVE_RIGHT_DIRECTION);
-                player.move();
+
+                //player.move();
                 break;
             }
         }
     }
 
-    public void keyReleased(int k){}
+    public void keyReleased(int k){
+       //  player.setMoveDirection(Helper.STOP);
+    }
 
     public void keyTyped(int k){}
 }
