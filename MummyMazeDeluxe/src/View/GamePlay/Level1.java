@@ -2,6 +2,7 @@ package View.GamePlay;
 
 import Controller.GameManager;
 import Helper.Helper;
+import Model.Object.Mummy;
 import Model.Object.Player;
 import View.Scene;
 
@@ -16,11 +17,13 @@ import java.io.IOException;
  */
 public class Level1 extends Scene {
 
-    public Player player;
+    private Player player;
+    private Mummy mummy;
 
     public Level1() {
         try {
-            player = new Player(Helper.getPx(0),Helper.getPy(0));
+            player = Player.getInstance(Helper.getPx(0),Helper.getPy(0));
+            mummy = new Mummy(Helper.getPx(3),Helper.getPy(3));
             background = ImageIO.read(new File(Helper.GAME_PLAY_BACKGROUND_SRC));
         }catch(IOException e){
             e.printStackTrace();
@@ -31,11 +34,13 @@ public class Level1 extends Scene {
     public void draw(Graphics g) {
         g.drawImage(background,0,0,null);
         player.draw(g);
+        mummy.draw(g);
     }
 
     @Override
     public void update() {
         player.update();
+        mummy.update();
     }
 
     @Override

@@ -35,8 +35,16 @@ public class Helper {
     public static final String PLAYER_SPRITE_MOVE_TOP_SRC = "resource/image/move_top.png";
     public static final String PLAYER_SPRITE_MOVE_BOTTOM_SRC = "resource/image/move_bottom.png";
 
+    public static final String MUMMY_SPRITE_SHEET_SRC = "resource/image/mummy_white.png";
+    public static final String MUMMY_SPRITE_SRC = "resource/image/mummy_sprite.png";
+
     public static final String BACKGROUND_SOUND_SRC = "resource/sound/background.wav";
 
+    public static final int WALL_TOP = 1;
+    public static final int WALL_RIGHT = 2;
+    public static final int WALL_BOTTOM = 3;
+    public static final int WALL_LEFT = 4;
+    public static final int WALL_NONE = 0;
 
     public static final int MOVE_TOP_DIRECTION = 1;
     public static final int MOVE_RIGHT_DIRECTION = 2;
@@ -50,6 +58,10 @@ public class Helper {
 
     public static final int SPRITE_PLAYER_WIDTH = 60;
     public static final int SPRITE_PLAYER_HEIGHT = 60;
+
+    public static final int SPRITE_MUMMY_WIDTH = 60;
+    public static final int SPRITE_MUMMY_HEIGHT = 60;
+
     public static final int TURN_OVER_SPEED = 50;
 
     public static int getPx(int oX){

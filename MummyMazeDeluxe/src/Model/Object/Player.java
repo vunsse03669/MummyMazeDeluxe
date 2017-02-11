@@ -24,7 +24,16 @@ public class Player extends GameObject {
     public boolean isMoving;
     private int moveRange = 0;
 
-    public Player(int px, int py) {
+    private static Player instance;
+
+    public static Player getInstance(int px, int py) {
+        if(instance == null){
+            instance = new Player(px, py);
+        }
+        return instance;
+    }
+
+    private Player(int px, int py) {
         this.px = px;
         this.py = py;
         moveDirection = Helper.STOP;

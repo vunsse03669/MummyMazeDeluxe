@@ -1,0 +1,16 @@
+diff a/MummyMazeDeluxe/.idea/workspace.xml b/MummyMazeDeluxe/.idea/workspace.xml	(rejected hunks)
+@@ -24,11 +24,11 @@
+   </component>
+   <component name="FileEditorManager">
+     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+-      <file leaf-file-name="Level1.java" pinned="false" current-in-tab="false">
++      <file leaf-file-name="Level1.java" pinned="false" current-in-tab="true">
+         <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level1.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state vertical-scroll-proportion="0.0">
+-              <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
++            <state relative-caret-position="40">
++              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+               <folding />
+             </state>
+           </provider>
