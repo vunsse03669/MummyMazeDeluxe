@@ -33,7 +33,6 @@ public class Animation {
                     vectorFrame.add(img);
                 }
             }
-            System.out.println(vectorFrame.size());
         } catch (IOException e) {
             e.printStackTrace();
         }

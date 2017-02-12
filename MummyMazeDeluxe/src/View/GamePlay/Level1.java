@@ -22,8 +22,9 @@ public class Level1 extends Scene {
 
     public Level1() {
         try {
-            player = Player.getInstance(Helper.getPx(0),Helper.getPy(0));
+            player = Player.getInstance(Helper.getPx(1),Helper.getPy(5));
             mummy = new Mummy(Helper.getPx(3),Helper.getPy(3));
+            player.registerObserver(mummy);
             background = ImageIO.read(new File(Helper.GAME_PLAY_BACKGROUND_SRC));
         }catch(IOException e){
             e.printStackTrace();
@@ -40,7 +41,7 @@ public class Level1 extends Scene {
     @Override
     public void update() {
         player.update();
-        mummy.update();
+        mummy.update(Helper.getOx(player.getPX()),Helper.getOy(player.getPY()));
     }
 
     @Override
@@ -49,36 +50,27 @@ public class Level1 extends Scene {
         switch (k) {
             case KeyEvent.VK_DOWN:{
                 player.setMoveDirection(Helper.MOVE_BOTTOM_DIRECTION);
-                //player.isMoving = true;
-                //player.move();
                 break;
             }
 
             case KeyEvent.VK_UP:{
                 player.setMoveDirection(Helper.MOVE_TOP_DIRECTION);
-
-                //player.move();
                 break;
             }
 
             case KeyEvent.VK_LEFT: {
                 player.setMoveDirection(Helper.MOVE_LEFT_DIRECTION);
-
-                //player.move();
                 break;
             }
 
             case KeyEvent.VK_RIGHT: {
                 player.setMoveDirection(Helper.MOVE_RIGHT_DIRECTION);
-
-                //player.move();
                 break;
             }
         }
     }
 
     public void keyReleased(int k){
-       //  player.setMoveDirection(Helper.STOP);
     }
 
     public void keyTyped(int k){}

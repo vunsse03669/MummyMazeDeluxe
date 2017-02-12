@@ -9,17 +9,19 @@ import java.awt.event.HierarchyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Mr Hung on 2/8/2017.
  */
-public class Player extends GameObject {
+public class Player extends GameObject implements Subject {
 
     private Animation moveLeft;
     private Animation moveRight;
     private Animation moveTop;
     private Animation moveBottom;
     private int moveDirection;
+    private ArrayList<MummyObserver> observer = new ArrayList<>();
 
     public boolean isMoving;
     private int moveRange = 0;
@@ -53,12 +55,20 @@ public class Player extends GameObject {
         }
     }
 
+    public int getPX() {
+        return px;
+    }
+
+    public int getPY() {
+        return py;
+    }
+
     public int getMoveDirection(){
         return moveDirection;
     }
 
     public void setMoveDirection(int direction) {
-        //isMoving = true;
+
         switch (direction){
             case Helper.MOVE_BOTTOM_DIRECTION:{
                 if(Helper.getOy(py) >= 5) {
@@ -134,14 +144,12 @@ public class Player extends GameObject {
        // this.isMoving = true;
         moveRange += Helper.MOVE_UNIT;
 
-    if(moveRange >= Helper.MOVE_RANGE + 1){
-        moveRange = 0;
-        isMoving = false;
-        setMoveDirection(Helper.STOP);
-    }
-
-
-
+        if(moveRange > Helper.MOVE_RANGE){
+            moveRange = 0;
+            isMoving = false;
+            setMoveDirection(Helper.STOP);
+            notifyObserver();
+        }
 
         switch (moveDirection){
             case Helper.MOVE_RIGHT_DIRECTION: {
@@ -183,5 +191,24 @@ public class Player extends GameObject {
           move();
       }
 
+    }
+
+
+    // implement Subject interface method
+    @Override
+    public void registerObserver(MummyObserver ob) {
+        observer.add(ob);
+    }
+
+    @Override
+    public void removeObserver(MummyObserver ob) {
+        observer.remove(ob);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for(MummyObserver ob : observer) {
+            ob.resetMoveStep();
+        }
     }
 }
