@@ -2,6 +2,7 @@ package Model.Object;
 
 import Helper.Helper;
 import Model.Animation;
+import Model.Cell;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -25,8 +26,15 @@ public class Player extends GameObject implements Subject {
 
     public boolean isMoving;
     private int moveRange = 0;
+    private Cell [][]currentMap;
+
+    private boolean canMoveRight = true;
+    private boolean canMoveLeft = true;
+    private boolean canMoveTop  = true;
+    private boolean canMoveBottom = true;
 
     private static Player instance;
+
 
     public static Player getInstance(int px, int py) {
         if(instance == null){
@@ -53,6 +61,10 @@ public class Player extends GameObject implements Subject {
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void setMap(Cell [][]map) {
+        this.currentMap = map;
     }
 
     public int getPX() {
@@ -149,39 +161,78 @@ public class Player extends GameObject implements Subject {
             isMoving = false;
             setMoveDirection(Helper.STOP);
             notifyObserver();
+
+           checkCollision(px,py);
+
         }
 
         switch (moveDirection){
             case Helper.MOVE_RIGHT_DIRECTION: {
 
-               if(px >= Helper.getPx(0) && px <= Helper.getPx(5))
-                   px += Helper.MOVE_UNIT;
+               if(px <= Helper.getPx(5))
+                   if(canMoveRight)
+                       px += Helper.MOVE_UNIT;
+                   else
+                       px += 0;
                 break;
             }
 
             case Helper.MOVE_LEFT_DIRECTION: {
 
-                if(px >= Helper.getPx(0) && px <= Helper.getPx(5))
-                    px -= Helper.MOVE_UNIT;
+                if(px >= Helper.getPx(0))
+                    if(canMoveLeft)
+                        px -= Helper.MOVE_UNIT;
+                     else
+                        px -= 0;
                 break;
             }
 
             case Helper.MOVE_TOP_DIRECTION: {
-                if(py >= Helper.getPy(0) && py <= Helper.getPy(5))
-                    py -= Helper.MOVE_UNIT;
+                if(py >= Helper.getPy(0))
+                    if(canMoveTop)
+                        py -= Helper.MOVE_UNIT;
+                    else
+                        py -= 0;
                 break;
             }
 
             case Helper.MOVE_BOTTOM_DIRECTION: {
 
                 if(py <= Helper.getPy(5))
-                    py += Helper.MOVE_UNIT;
+                    if(canMoveBottom)
+                         py += Helper.MOVE_UNIT;
+                    else
+                        py += 0;
                 break;
             }
         }
-        System.out.println(""+px+" "+py);
 
+    }
 
+    private void checkCollision(int px, int py) {
+        if(isCollisionRight(px,py,currentMap)){
+            canMoveRight = false;
+        }else{
+            canMoveRight = true;
+        }
+
+        if(isCollisionLeft(px,py,currentMap)){
+            canMoveLeft = false;
+        }else{
+            canMoveLeft = true;
+        }
+
+        if(isCollisionTop(px,py,currentMap)){
+            canMoveTop = false;
+        }else{
+            canMoveTop = true;
+        }
+
+        if(isCollisionBottom(px,py,currentMap)){
+            canMoveBottom = false;
+        }else{
+            canMoveBottom = true;
+        }
     }
 
     @Override

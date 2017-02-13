@@ -1,5 +1,7 @@
 package Helper;
 
+import Model.Cell;
+
 /**
  * Created by Mr Hung on 1/27/2017.
  */
@@ -40,11 +42,11 @@ public class Helper {
 
     public static final String BACKGROUND_SOUND_SRC = "resource/sound/background.wav";
 
-    public static final int WALL_TOP = 1;
-    public static final int WALL_RIGHT = 2;
-    public static final int WALL_BOTTOM = 3;
-    public static final int WALL_LEFT = 4;
-    public static final int WALL_NONE = 0;
+    public static final String WALL_TOP_SRC = "resource/image/wall_top.png";
+    public static final String WALL_RIGHT_SRC = "resource/image/wall_right.png";
+    public static final String WALL_BOTTOM_SRC = "resource/image/wall_bottom.png";
+    public static final String WALL_LEFT_SRC = "resource/image/wall_left.png";
+
 
     public static final int MOVE_TOP_DIRECTION = 1;
     public static final int MOVE_RIGHT_DIRECTION = 2;
@@ -64,6 +66,26 @@ public class Helper {
 
     public static final int TURN_OVER_SPEED = 50;
 
+    public static Cell [][] MAP_LV1 =  {
+            {new Cell(false,true,false,false), new Cell(false,true,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(true,false,false,true), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,true), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+    };
+
     public static int getPx(int oX){
         return pOX+oX * MOVE_RANGE + MOVE_RANGE/2 - 30;
     }
@@ -78,6 +100,15 @@ public class Helper {
 
     public static int getOy(int py){
         return (py-pOY)/MOVE_RANGE;
+    }
+
+    public static int abs(int number) {
+        if(number > 0)
+            return number;
+        else if(number < 0)
+            return -number;
+        else
+            return 0;
     }
 
 

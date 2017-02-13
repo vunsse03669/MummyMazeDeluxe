@@ -2,6 +2,7 @@ package View.GamePlay;
 
 import Controller.GameManager;
 import Helper.Helper;
+import Model.Cell;
 import Model.Object.Mummy;
 import Model.Object.Player;
 import View.Scene;
@@ -9,6 +10,7 @@ import View.Scene;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -19,13 +21,27 @@ public class Level1 extends Scene {
 
     private Player player;
     private Mummy mummy;
+    private Cell [][] map = Helper.MAP_LV1;
+
+    private BufferedImage wallTop;
+    private BufferedImage wallRight;
+    private BufferedImage wallBottom;
+    private BufferedImage wallLeft;
 
     public Level1() {
         try {
-            player = Player.getInstance(Helper.getPx(1),Helper.getPy(5));
-            mummy = new Mummy(Helper.getPx(3),Helper.getPy(3));
+            player = Player.getInstance(Helper.getPx(3),Helper.getPy(1));
+            mummy = new Mummy(Helper.getPx(1),Helper.getPy(5));
             player.registerObserver(mummy);
+            player.setMap(map);
+            mummy.setMap(map);
+
             background = ImageIO.read(new File(Helper.GAME_PLAY_BACKGROUND_SRC));
+            wallBottom = ImageIO.read(new File(Helper.WALL_BOTTOM_SRC));
+            wallTop = ImageIO.read(new File(Helper.WALL_TOP_SRC));
+            wallRight = ImageIO.read(new File(Helper.WALL_RIGHT_SRC));
+            wallLeft = ImageIO.read(new File(Helper.WALL_LEFT_SRC));
+
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -34,6 +50,22 @@ public class Level1 extends Scene {
     @Override
     public void draw(Graphics g) {
         g.drawImage(background,0,0,null);
+        for(int i = 0; i < map.length; i++)  {
+            for(int j = 0; j < map[i].length; j++) {
+                if(map[i][j].top){
+                    g.drawImage(wallTop,Helper.getPx(i)-15,Helper.getPy(j)-15,null);
+                }
+                if(map[i][j].right){
+                    g.drawImage(wallRight,Helper.getPx(i)-15,Helper.getPy(j)-15,null);
+                }
+                if(map[i][j].left){
+                    g.drawImage(wallLeft,Helper.getPx(i)-15,Helper.getPy(j)-15,null);
+                }
+                if(map[i][j].bottom){
+                    g.drawImage(wallBottom,Helper.getPx(i)-15,Helper.getPy(j)-15,null);
+                }
+            }
+        }
         player.draw(g);
         mummy.draw(g);
     }
