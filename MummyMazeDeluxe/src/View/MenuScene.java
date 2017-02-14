@@ -33,8 +33,8 @@ public class MenuScene extends Scene {
         super();
         currentOption = 0;
         soundDictionary = new HashMap<String,Sound>();
-        soundDictionary.put(Helper.BACKGROUND_SOUND_KEY,new Sound(Helper.BACKGROUND_SOUND_SRC));
-        soundDictionary.get(Helper.BACKGROUND_SOUND_KEY).play();
+        soundDictionary.put(Helper.SELECT_SOUND_KEY, new Sound(Helper.SELECT_SOUND_SRC));
+
 
         try{
             background = ImageIO.read(new File(Helper.MENU_BACKGROUND_SRC));
@@ -66,7 +66,7 @@ public class MenuScene extends Scene {
        switch (k) {
            case KeyEvent.VK_DOWN:{
                currentOption ++;
-
+               soundDictionary.get(Helper.SELECT_SOUND_KEY).play();
                if(currentOption == options.length)
                    currentOption = 0;
                break;
@@ -74,6 +74,7 @@ public class MenuScene extends Scene {
 
            case KeyEvent.VK_UP:{
                currentOption --;
+               soundDictionary.get(Helper.SELECT_SOUND_KEY).play();
                if(currentOption < 0)
                    currentOption = options.length - 1;
                break;
@@ -81,7 +82,6 @@ public class MenuScene extends Scene {
 
            case KeyEvent.VK_ENTER: {
                 if(currentOption == 0) {
-                    soundDictionary.get(Helper.BACKGROUND_SOUND_KEY).stop();
                     GameManager.getInstance().pushToStack(new Level1());
                 }
                break;

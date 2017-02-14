@@ -22,7 +22,7 @@ public class Mummy extends GameObject implements MummyObserver {
 
     private int moveStep;
     private int moveRange;
-    private boolean isMoving;
+    private boolean canMove;
     private int moveDirection;
 
     private Cell[][]currentMap;
@@ -31,6 +31,8 @@ public class Mummy extends GameObject implements MummyObserver {
     private boolean canMoveLeft = true;
     private boolean canMoveTop  = true;
     private boolean canMoveBottom = true;
+
+    public boolean isMoving;
 
     public Mummy(int px, int py) {
         this.px = px;
@@ -57,6 +59,14 @@ public class Mummy extends GameObject implements MummyObserver {
 
     public void setMap(Cell [][]map) {
         this.currentMap = map;
+    }
+
+    public int getPX() {
+        return px;
+    }
+
+    public int getPY() {
+        return py;
     }
 
     public void setMoveStep(int moveStep) {
@@ -114,11 +124,12 @@ public class Mummy extends GameObject implements MummyObserver {
     public void move(int playerOX, int playerOY){
 
         if(moveStep > 2) {
+            isMoving = false;
             moveDirection = Helper.STOP;
             return;
         }
 
-        if(!isMoving) {
+        if(!canMove) {
             return;
         }
 
@@ -139,6 +150,7 @@ public class Mummy extends GameObject implements MummyObserver {
                 if(px <= Helper.getPx(5))
                     if(canMoveRight)
                         px += Helper.MOVE_UNIT;
+
                     else
                         px += 0;
                 break;
@@ -206,29 +218,46 @@ public class Mummy extends GameObject implements MummyObserver {
         int currentOY = Helper.getOy(py);
 
         if(currentOX == playerOX) {
-            if(currentOY > playerOY) {
+            if(currentOY > playerOY && canMoveTop) {
                 setMoveDirection(Helper.MOVE_TOP_DIRECTION);
-            } else if(currentOY < playerOY) {
+                isMoving = true;
+            } else if(currentOY < playerOY && canMoveBottom) {
                 setMoveDirection(Helper.MOVE_BOTTOM_DIRECTION);
+                isMoving = true;
             }
+            //isMoving = true;
         } else if(currentOY == playerOY) {
-            if(currentOX > playerOX) {
+            if(currentOX > playerOX && canMoveLeft) {
                 setMoveDirection(Helper.MOVE_LEFT_DIRECTION);
-            } else if(currentOX < playerOX) {
+                isMoving = true;
+            } else if(currentOX < playerOX && canMoveRight) {
                 setMoveDirection(Helper.MOVE_RIGHT_DIRECTION);
+                isMoving = true;
             }
+
+
         } else if(currentOX != playerOX && currentOY != playerOY) {
-            if(currentOX > playerOX) {
+            if(currentOX > playerOX && canMoveLeft) {
                 setMoveDirection(Helper.MOVE_LEFT_DIRECTION);
-            } else if(currentOX < playerOX) {
+                isMoving = true;
+            } else if(currentOX < playerOX && canMoveRight) {
                 setMoveDirection(Helper.MOVE_RIGHT_DIRECTION);
+                isMoving = true;
+            } else if(currentOY > playerOY && canMoveTop) {
+                setMoveDirection(Helper.MOVE_TOP_DIRECTION);
+                isMoving = true;
+            } else if(currentOY < playerOY && canMoveBottom) {
+                setMoveDirection(Helper.MOVE_BOTTOM_DIRECTION);
+                isMoving = true;
             }
+
+
         }
     }
 
     @Override
     public void resetMoveStep() {
         moveStep = 0;
-        isMoving = true;
+        canMove = true;
     }
 }

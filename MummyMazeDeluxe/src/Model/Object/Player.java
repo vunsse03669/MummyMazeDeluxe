@@ -75,6 +75,14 @@ public class Player extends GameObject implements Subject {
         return py;
     }
 
+    public void setPx(int px){
+        this.px = px;
+    }
+
+    public void setPy(int py) {
+        this.py = py;
+    }
+
     public int getMoveDirection(){
         return moveDirection;
     }
@@ -153,7 +161,6 @@ public class Player extends GameObject implements Subject {
 
     @Override
     public void move() {
-       // this.isMoving = true;
         moveRange += Helper.MOVE_UNIT;
 
         if(moveRange > Helper.MOVE_RANGE){

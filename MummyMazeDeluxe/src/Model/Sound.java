@@ -10,30 +10,32 @@ import java.io.File;
  * Created by Mr Hung on 1/27/2017.
  */
 public class Sound {
-    Clip clip;
+    public Clip clip;
     public Sound(String s){
-        try{
-            AudioInputStream ais = AudioSystem.getAudioInputStream(new File(s));
+        if(s != null || !s.equals("")) {
+            try{
+                AudioInputStream ais = AudioSystem.getAudioInputStream(new File(s));
 
-            AudioFormat baseFormat = ais.getFormat();
-            AudioFormat decodeFomat = new AudioFormat(
-                    AudioFormat.Encoding.PCM_SIGNED,
-                    baseFormat.getSampleRate(),
-                    16,
-                    baseFormat.getChannels(),
-                    baseFormat.getChannels() * 2,
-                    baseFormat.getSampleRate(),
-                    false
-            );
+                AudioFormat baseFormat = ais.getFormat();
+                AudioFormat decodeFomat = new AudioFormat(
+                        AudioFormat.Encoding.PCM_SIGNED,
+                        baseFormat.getSampleRate(),
+                        16,
+                        baseFormat.getChannels(),
+                        baseFormat.getChannels() * 2,
+                        baseFormat.getSampleRate(),
+                        false
+                );
 
-            AudioInputStream dais =
-                    AudioSystem.getAudioInputStream(
-                            decodeFomat, ais);
-            clip = AudioSystem.getClip();
-            clip.open(dais);
-        }
-        catch (Exception e){
-            e.printStackTrace();
+                AudioInputStream dais =
+                        AudioSystem.getAudioInputStream(
+                                decodeFomat, ais);
+                clip = AudioSystem.getClip();
+                clip.open(dais);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 

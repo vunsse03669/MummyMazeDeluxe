@@ -1,10 +1,13 @@
 package View.GamePlay;
 
 import Controller.GameManager;
+import Controller.SoundManager;
 import Helper.Helper;
 import Model.Cell;
+import Model.Object.Flag;
 import Model.Object.Mummy;
 import Model.Object.Player;
+import Model.Sound;
 import View.Scene;
 
 import javax.imageio.ImageIO;
@@ -13,6 +16,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * Created by Mr Hung on 2/7/2017.
@@ -21,6 +25,7 @@ public class Level1 extends Scene {
 
     private Player player;
     private Mummy mummy;
+    private Flag flag;
     private Cell [][] map = Helper.MAP_LV1;
 
     private BufferedImage wallTop;
@@ -28,10 +33,16 @@ public class Level1 extends Scene {
     private BufferedImage wallBottom;
     private BufferedImage wallLeft;
 
+    private GameManager gsm;
+
+
     public Level1() {
         try {
-            player = Player.getInstance(Helper.getPx(3),Helper.getPy(1));
+            player = Player.getInstance(Helper.getPx(0),Helper.getPy(1));
             mummy = new Mummy(Helper.getPx(1),Helper.getPy(5));
+            flag = new Flag(Helper.getPx(5),Helper.getPy(3));
+            gsm = GameManager.getInstance();
+
             player.registerObserver(mummy);
             player.setMap(map);
             mummy.setMap(map);
@@ -66,19 +77,36 @@ public class Level1 extends Scene {
                 }
             }
         }
+        flag.draw(g);
         player.draw(g);
         mummy.draw(g);
     }
 
     @Override
     public void update() {
+
         player.update();
         mummy.update(Helper.getOx(player.getPX()),Helper.getOy(player.getPY()));
+
+       if(!mummy.isMoving) {
+           if(Helper.getOx(mummy.getPX()) == Helper.getOx( player.getPX())
+                   && Helper.getOy( mummy.getPY()) == Helper.getOy(player.getPY())) {
+               System.out.println("Game over");
+               gsm.popToStack();
+           }
+       }
+        if(Helper.getOx(flag.getPx()) == Helper.getOx(player.getPX())
+                && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
+                && !player.isMoving && !mummy.isMoving) {
+
+            gsm.popToStack();
+            gsm.pushToStack(new Level2());
+        }
     }
 
     @Override
     public void keyPressed(int k) {
-        if (!player.isMoving)
+        if (!player.isMoving && !mummy.isMoving)
         switch (k) {
             case KeyEvent.VK_DOWN:{
                 player.setMoveDirection(Helper.MOVE_BOTTOM_DIRECTION);

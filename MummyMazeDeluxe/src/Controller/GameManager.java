@@ -13,9 +13,14 @@ import java.util.Stack;
 public class GameManager {
     private static GameManager instance;
     private Stack<Scene> stack;
+    private SoundManager soundManager;
+
     private GameManager(){
         stack = new Stack<>();
         this.pushToStack(new MenuScene());
+
+        soundManager = SoundManager.getInstance();
+        soundManager.play();
     }
 
     public static GameManager getInstance() {
@@ -32,6 +37,7 @@ public class GameManager {
 
     public void update() {
         stack.peek().update();
+        soundManager.update();
     }
 
     public void keyPressed(int k) {
@@ -48,5 +54,9 @@ public class GameManager {
 
     public void pushToStack(Scene scene) {
         stack.push(scene);
+    }
+
+    public void popToStack() {
+        stack.pop();
     }
 }
