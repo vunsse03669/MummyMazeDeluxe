@@ -1,5 +1,6 @@
 package View;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -13,5 +14,6 @@ public abstract class Scene {
     public abstract void keyPressed(int k);
     public abstract void keyReleased(int k);
     public abstract void keyTyped(int k);
+
 }
 

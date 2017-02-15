@@ -82,7 +82,10 @@ public class MenuScene extends Scene {
 
            case KeyEvent.VK_ENTER: {
                 if(currentOption == 0) {
+                    GameManager.getInstance().setCurrentLv(1);
                     GameManager.getInstance().pushToStack(new Level1());
+                } else if(currentOption == 1) {
+
                 }
                break;
            }

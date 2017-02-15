@@ -17,14 +17,13 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Mr Hung on 2/14/2017.
+ * Created by Mr Hung on 2/15/2017.
  */
-public class Level3 extends Scene {
-
+public class Level5 extends Scene{
     private Player player;
     private Mummy mummy;
     private Flag flag;
-    private Cell[][] map = Helper.MAP_LV3;
+    private Cell[][] map = Helper.MAP_LV5;
 
     private BufferedImage wallTop;
     private BufferedImage wallRight;
@@ -33,14 +32,14 @@ public class Level3 extends Scene {
 
     private GameManager gsm;
 
-    public Level3() {
+    public Level5() {
         try{
-            player = Player.getInstance(Helper.getPx(0),Helper.getPy(1));
-            player.setPx(Helper.getPx(1));
-            player.setPy(Helper.getPy(4));
+            player = Player.getInstance(Helper.getPx(1),Helper.getPy(3));
+            player.setPx(Helper.getPx(2));
+            player.setPy(Helper.getPy(2));
 
-            mummy = new Mummy(Helper.getPx(1),Helper.getPy(1));
-            flag = new Flag(Helper.getPx(0),Helper.getPy(0));
+            mummy = new Mummy(Helper.getPx(0),Helper.getPy(0));
+            flag = new Flag(Helper.getPx(4),Helper.getPy(0));
             gsm = GameManager.getInstance();
             player.setNumberMove(gsm.tmpMove);
 
@@ -103,11 +102,9 @@ public class Level3 extends Scene {
         if(Helper.getOx(flag.getPx()) == Helper.getOx(player.getPX())
                 && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
                 && !player.isMoving && !mummy.isMoving) {
-            player.reset();
             gsm.popToStack();
-            gsm.setCurrentLv(4);
             gsm.tmpMove = player.getNumberMove();
-            gsm.pushToStack(new Level4());
+            gsm.pushToStack(new Level1());
         }
     }
 

@@ -36,7 +36,6 @@ public class SoundManager {
         if(!listSong.isEmpty() && soundPlayer.clip != null && !soundPlayer.clip.isRunning()){
             listSong.pop();
             if(!listSong.isEmpty()){
-                System.out.println("playing: " + listSong.peek());
                 soundPlayer = new Sound(listSong.peek());
                 play();
             }
@@ -47,7 +46,7 @@ public class SoundManager {
     }
 
     private void makeListSong() {
-        
+        listSong.push(Helper.LV3_SOUND_SRC);
         listSong.push(Helper.LV2_SOUND_SRC);
         listSong.push(Helper.LV1_SOUND_SRC);
     }

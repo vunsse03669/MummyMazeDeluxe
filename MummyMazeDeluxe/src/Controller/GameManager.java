@@ -14,11 +14,14 @@ public class GameManager {
     private static GameManager instance;
     private Stack<Scene> stack;
     private SoundManager soundManager;
+    private int currentLv;
+    public int tmpMove;
 
     private GameManager(){
         stack = new Stack<>();
         this.pushToStack(new MenuScene());
-
+        currentLv = 0;
+        tmpMove = 0;
         soundManager = SoundManager.getInstance();
         soundManager.play();
     }
@@ -29,6 +32,13 @@ public class GameManager {
         }
         return instance;
     }
+
+
+    public void setCurrentLv(int lv) {
+        currentLv = lv;
+    }
+
+    public int getCurrentLv() {return currentLv;}
 
 
     public void draw(Graphics g) {

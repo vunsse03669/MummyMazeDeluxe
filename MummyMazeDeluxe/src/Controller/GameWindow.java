@@ -19,12 +19,20 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
     private boolean isRunning;
     private Image backImage;
     private Graphics backGraphics;
+    private static GameWindow instance;
 
-    public GameWindow() {
+    private GameWindow() {
         super();
         isRunning = true;
         gameManager = GameManager.getInstance();
         setGame();
+    }
+
+    public static GameWindow getInstance() {
+        if(instance == null) {
+            instance = new GameWindow();
+        }
+        return instance;
     }
 
     private void setGame() {

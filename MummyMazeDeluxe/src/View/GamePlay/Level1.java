@@ -8,6 +8,7 @@ import Model.Object.Flag;
 import Model.Object.Mummy;
 import Model.Object.Player;
 import Model.Sound;
+import View.GameOver;
 import View.Scene;
 
 import javax.imageio.ImageIO;
@@ -38,10 +39,15 @@ public class Level1 extends Scene {
 
     public Level1() {
         try {
+            gsm = GameManager.getInstance();
             player = Player.getInstance(Helper.getPx(0),Helper.getPy(1));
+            player.setPx(Helper.getPx(0));
+            player.setPy(Helper.getPy(1));
+            player.setNumberMove(gsm.tmpMove);
+
             mummy = new Mummy(Helper.getPx(1),Helper.getPy(5));
             flag = new Flag(Helper.getPx(5),Helper.getPy(3));
-            gsm = GameManager.getInstance();
+
 
             player.registerObserver(mummy);
             player.setMap(map);
@@ -77,6 +83,10 @@ public class Level1 extends Scene {
                 }
             }
         }
+        int fontWidth = g.getFontMetrics().stringWidth("MOVE STEP: " + player.getNumberMove());
+        g.setColor(Color.white);
+        g.setFont(new Font(Helper.MENU_FONT_FAMILY, Font.PLAIN,20));
+        g.drawString("MOVE STEP: " + player.getNumberMove(), 220/2 - fontWidth/2, 100);
         flag.draw(g);
         player.draw(g);
         mummy.draw(g);
@@ -93,6 +103,7 @@ public class Level1 extends Scene {
                    && Helper.getOy( mummy.getPY()) == Helper.getOy(player.getPY())) {
                System.out.println("Game over");
                gsm.popToStack();
+               gsm.pushToStack(new GameOver());
            }
        }
         if(Helper.getOx(flag.getPx()) == Helper.getOx(player.getPX())
@@ -100,6 +111,8 @@ public class Level1 extends Scene {
                 && !player.isMoving && !mummy.isMoving) {
 
             gsm.popToStack();
+            gsm.setCurrentLv(2);
+            gsm.tmpMove = player.getNumberMove();
             gsm.pushToStack(new Level2());
         }
     }

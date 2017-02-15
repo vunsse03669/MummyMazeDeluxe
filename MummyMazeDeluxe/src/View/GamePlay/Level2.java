@@ -6,6 +6,7 @@ import Model.Cell;
 import Model.Object.Flag;
 import Model.Object.Mummy;
 import Model.Object.Player;
+import View.GameOver;
 import View.Scene;
 
 import javax.imageio.ImageIO;
@@ -41,6 +42,7 @@ public class Level2 extends Scene {
             mummy = new Mummy(Helper.getPx(5),Helper.getPy(1));
             flag = new Flag(Helper.getPx(4),Helper.getPy(1));
             gsm = GameManager.getInstance();
+            player.setNumberMove(gsm.tmpMove);
 
             player.registerObserver(mummy);
             player.setMap(map);
@@ -78,6 +80,11 @@ public class Level2 extends Scene {
         flag.draw(g);
         player.draw(g);
         mummy.draw(g);
+
+        int fontWidth = g.getFontMetrics().stringWidth("MOVE STEP: " + player.getNumberMove());
+        g.setColor(Color.white);
+        g.setFont(new Font(Helper.MENU_FONT_FAMILY, Font.PLAIN,20));
+        g.drawString("MOVE STEP: " + player.getNumberMove(), 220/2 - fontWidth/2, 100);
     }
 
     @Override
@@ -90,12 +97,15 @@ public class Level2 extends Scene {
                     && Helper.getOy( mummy.getPY()) == Helper.getOy(player.getPY())) {
                 System.out.println("Game over");
                 gsm.popToStack();
+                gsm.pushToStack(new GameOver());
             }
         }
         if(Helper.getOx(flag.getPx()) == Helper.getOx(player.getPX())
                 && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
                 && !player.isMoving && !mummy.isMoving) {
             gsm.popToStack();
+            gsm.setCurrentLv(3);
+            gsm.tmpMove = player.getNumberMove();
             gsm.pushToStack(new Level3());
         }
     }

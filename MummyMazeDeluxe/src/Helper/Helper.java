@@ -28,6 +28,10 @@ public class Helper {
     public static final String MENU_SCENE_HELP = "HELP";
     public static final String MENU_SCENE_ABOUT = "ABOUT";
     public static final String MENU_SCENE_EXIT = "EXIT";
+
+    public static final String PLAY_AGAIN = "PLAY AGAIN";
+    public static final String GO_TO_MENU = "GO TO MENU";
+
     public static final int MENU_FONT_SIZE = 40;
     public static final String MENU_FONT_FAMILY = "Arial Black";
     public static final int MENU_DISTANCE_LINE = 60;
@@ -46,12 +50,14 @@ public class Helper {
     public static final String SELECT_SOUND_SRC = "resource/sound/select.wav";
     public static final String LV1_SOUND_SRC = "resource/sound/lv1.wav";
     public static final String LV2_SOUND_SRC = "resource/sound/lv2.wav";
-    public static final String LV3_SOUND_SRC = "resource/sound/lv3.wav";
+    public static final String LV3_SOUND_SRC = "resource/sound/background.wav";
 
     public static final String WALL_TOP_SRC = "resource/image/wall_top.png";
     public static final String WALL_RIGHT_SRC = "resource/image/wall_right.png";
     public static final String WALL_BOTTOM_SRC = "resource/image/wall_bottom.png";
     public static final String WALL_LEFT_SRC = "resource/image/wall_left.png";
+
+    public static final String GAME_OVER_BACKGROUND = "resource/image/game_over.png";
 
 
     public static final int MOVE_TOP_DIRECTION = 1;
@@ -127,6 +133,46 @@ public class Helper {
 
             {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
                     new Cell(false,false,true,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+    };
+
+    public static Cell [][] MAP_LV4 =  {
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,true,false), new Cell(false,false,false,false), new Cell(true,true,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,true,false,false), new Cell(false,true,true,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,true,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,true), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+    };
+
+    public static Cell [][] MAP_LV5 =  {
+            {new Cell(false,false,false,false), new Cell(false,true,false,false), new Cell(false,false,false,false),
+                    new Cell(true,true,false,false), new Cell(false,true,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,true,false), new Cell(false,false,false,false), new Cell(false,false,true,false),
+                    new Cell(false,false,false,false), new Cell(false,false,false,true),  new Cell(true,true,false,false),},
+
+            {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
+                    new Cell(false,false,true,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
+
+            {new Cell(false,false,true,false), new Cell(false,false,false,false), new Cell(true,false,true,true),
+                    new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},
 
             {new Cell(false,false,false,false), new Cell(false,false,false,false), new Cell(false,false,false,false),
                     new Cell(false,false,false,false), new Cell(false,false,false,false),  new Cell(false,false,false,false),},

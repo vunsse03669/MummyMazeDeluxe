@@ -27,6 +27,7 @@ public class Player extends GameObject implements Subject {
     public boolean isMoving;
     private int moveRange = 0;
     private Cell [][]currentMap;
+    private int numberMove;
 
     private boolean canMoveRight = true;
     private boolean canMoveLeft = true;
@@ -40,12 +41,14 @@ public class Player extends GameObject implements Subject {
         if(instance == null){
             instance = new Player(px, py);
         }
+        instance.reset();
         return instance;
     }
 
     private Player(int px, int py) {
         this.px = px;
         this.py = py;
+        numberMove = 0;
         moveDirection = Helper.STOP;
 
         moveRight = new Animation(Helper.PLAYER_SPRITE_SHEET_SRC,6,10,Helper.SPRITE_PLAYER_WIDTH,Helper.SPRITE_PLAYER_HEIGHT,
@@ -61,6 +64,17 @@ public class Player extends GameObject implements Subject {
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void setIntanceNull() {
+        instance = null;
+    }
+
+    public void reset() {
+        canMoveRight = true;
+        canMoveBottom = true;
+        canMoveTop = true;
+        canMoveLeft = true;
     }
 
     public void setMap(Cell [][]map) {
@@ -86,6 +100,16 @@ public class Player extends GameObject implements Subject {
     public int getMoveDirection(){
         return moveDirection;
     }
+
+    public void increaseMove() {
+        numberMove++;
+    }
+
+    public void setNumberMove(int numberMove) {
+        this.numberMove = numberMove;
+    }
+
+    public int getNumberMove() {return numberMove;}
 
     public void setMoveDirection(int direction) {
 
@@ -168,7 +192,7 @@ public class Player extends GameObject implements Subject {
             isMoving = false;
             setMoveDirection(Helper.STOP);
             notifyObserver();
-
+            increaseMove();
            checkCollision(px,py);
 
         }
