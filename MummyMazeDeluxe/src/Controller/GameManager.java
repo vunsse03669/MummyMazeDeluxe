@@ -15,13 +15,12 @@ public class GameManager {
     private Stack<Scene> stack;
     private SoundManager soundManager;
     private int currentLv;
-    public int tmpMove;
+
 
     private GameManager(){
         stack = new Stack<>();
         this.pushToStack(new MenuScene());
         currentLv = 0;
-        tmpMove = 0;
         soundManager = SoundManager.getInstance();
         soundManager.play();
     }

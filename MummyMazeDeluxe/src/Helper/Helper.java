@@ -37,6 +37,9 @@ public class Helper {
     public static final int MENU_DISTANCE_LINE = 60;
 
     public static final String MENU_BACKGROUND_SRC = "resource/image/title.jpg";
+    public static final String ABOUT_BACKGROUND_SRC = "resource/image/about.png";
+    public static final String HELP_BACKGROUND_SRC = "resource/image/help.png";
+
     public static final String GAME_PLAY_BACKGROUND_SRC = "resource/image/lvlEditor.png";
     public static final String PLAYER_SPRITE_SHEET_SRC = "resource/image/player.png";
     public static final String PLAYER_SPRITE_SRC = "resource/image/player_sprite.png";
@@ -50,7 +53,7 @@ public class Helper {
     public static final String SELECT_SOUND_SRC = "resource/sound/select.wav";
     public static final String LV1_SOUND_SRC = "resource/sound/lv1.wav";
     public static final String LV2_SOUND_SRC = "resource/sound/lv2.wav";
-    public static final String LV3_SOUND_SRC = "resource/sound/background.wav";
+    public static final String LV3_SOUND_SRC = "resource/sound/lv3.wav";
 
     public static final String WALL_TOP_SRC = "resource/image/wall_top.png";
     public static final String WALL_RIGHT_SRC = "resource/image/wall_right.png";

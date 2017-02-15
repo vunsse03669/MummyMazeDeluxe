@@ -81,6 +81,7 @@ public class GameOver extends Scene {
             case KeyEvent.VK_ENTER: {
                 if(currentOption == 0) {
                     GameManager.getInstance().popToStack();
+                    Player.getInstance(0,0).setNumberMove(0);
                     if(GameManager.getInstance().getCurrentLv() == 1) {
                         GameManager.getInstance().pushToStack(new Level1());
                     } else if(GameManager.getInstance().getCurrentLv() == 2) {

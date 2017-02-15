@@ -1,25 +1,20 @@
 package View.GamePlay;
 
 import Controller.GameManager;
-import Controller.GameWindow;
-import Controller.SoundManager;
 import Helper.Helper;
 import Model.Cell;
 import Model.Object.Flag;
 import Model.Object.Mummy;
 import Model.Object.Player;
-import Model.Sound;
 import View.GameOver;
 import View.Scene;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 
 /**
  * Created by Mr Hung on 2/7/2017.
@@ -36,6 +31,8 @@ public class Level1 extends Scene {
     private BufferedImage wallBottom;
     private BufferedImage wallLeft;
 
+    private int totalStep;
+
     private GameManager gsm;
 
 
@@ -45,11 +42,10 @@ public class Level1 extends Scene {
             player = Player.getInstance(Helper.getPx(0),Helper.getPy(1));
             player.setPx(Helper.getPx(0));
             player.setPy(Helper.getPy(1));
-            player.setNumberMove(gsm.tmpMove);
 
             mummy = new Mummy(Helper.getPx(1),Helper.getPy(5));
             flag = new Flag(Helper.getPx(5),Helper.getPy(3));
-
+            totalStep = 10;
 
             player.registerObserver(mummy);
             player.setMap(map);
@@ -86,10 +82,14 @@ public class Level1 extends Scene {
                 }
             }
         }
-        int fontWidth = g.getFontMetrics().stringWidth("MOVE STEP: " + player.getNumberMove());
+
+
+
+        int fontWidth = g.getFontMetrics().stringWidth("MOVE STEP: " +(totalStep - player.getNumberMove()));
         g.setColor(Color.white);
         g.setFont(new Font(Helper.MENU_FONT_FAMILY, Font.PLAIN,20));
-        g.drawString("MOVE STEP: " + player.getNumberMove(), 220/2 - fontWidth/2, 100);
+        g.drawString("MOVE STEP: " + (totalStep - player.getNumberMove()), 220/2 - fontWidth/2, 160);
+        g.drawString("LEVEL" + gsm.getCurrentLv(), 80, 100);
         flag.draw(g);
         player.draw(g);
         mummy.draw(g);
@@ -102,8 +102,9 @@ public class Level1 extends Scene {
         mummy.update(Helper.getOx(player.getPX()),Helper.getOy(player.getPY()));
 
        if(!mummy.isMoving) {
-           if(Helper.getOx(mummy.getPX()) == Helper.getOx( player.getPX())
-                   && Helper.getOy( mummy.getPY()) == Helper.getOy(player.getPY())) {
+           if((Helper.getOx(mummy.getPX()) == Helper.getOx( player.getPX())
+                   && Helper.getOy( mummy.getPY()) == Helper.getOy(player.getPY()))
+                   || totalStep - player.getNumberMove() == 0) {
                System.out.println("Game over");
                gsm.popToStack();
                gsm.pushToStack(new GameOver());
@@ -115,7 +116,6 @@ public class Level1 extends Scene {
 
             gsm.popToStack();
             gsm.setCurrentLv(2);
-            gsm.tmpMove = player.getNumberMove();
             gsm.pushToStack(new Level2());
         }
     }
@@ -143,7 +143,28 @@ public class Level1 extends Scene {
                 player.setMoveDirection(Helper.MOVE_RIGHT_DIRECTION);
                 break;
             }
+
+            case KeyEvent.VK_X: {
+                resetLevel();
+                break;
+            }
+
+            case KeyEvent.VK_Z: {
+
+                break;
+            }
         }
+    }
+
+    private void resetLevel() {
+        player.setPx(Helper.getPx(0));
+        player.setPy(Helper.getPy(1));
+
+        mummy.setPx(Helper.getPx(1));
+        mummy.setPy(Helper.getPy(5));
+
+        player.reset();
+        player.setNumberMove(0);
     }
 
     public void keyReleased(int k){

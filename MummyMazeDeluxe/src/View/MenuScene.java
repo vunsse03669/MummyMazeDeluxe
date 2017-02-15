@@ -23,7 +23,6 @@ public class MenuScene extends Scene {
 
     private String [] options = {Helper.MENU_SCENE_START,
                                  Helper.MENU_SCENE_HELP,
-                                 Helper.MENU_SCENE_HIGH_SCORE,
                                  Helper.MENU_SCENE_ABOUT,
                                  Helper.MENU_SCENE_EXIT};
     private int currentOption;
@@ -52,7 +51,7 @@ public class MenuScene extends Scene {
                 g.setColor(Color.BLACK);
             int fontWidth = g.getFontMetrics().stringWidth(options[i]);
             g.setFont(new Font(Helper.MENU_FONT_FAMILY,Font.PLAIN, Helper.MENU_FONT_SIZE));
-            g.drawString(options[i],Helper.WINDOW_WIDTH/2-fontWidth/2, (int) (Helper.WINDOW_HEIGHT/2 +Helper.MENU_FONT_SIZE*2
+            g.drawString(options[i],Helper.WINDOW_WIDTH/2-fontWidth/2, (int) (Helper.WINDOW_HEIGHT/2 +Helper.MENU_FONT_SIZE*3
                                 + i*Helper.MENU_DISTANCE_LINE));
         }
     }
@@ -81,11 +80,15 @@ public class MenuScene extends Scene {
            }
 
            case KeyEvent.VK_ENTER: {
-                if(currentOption == 0) {
+                if(options[currentOption].equals(Helper.MENU_SCENE_START)) {
                     GameManager.getInstance().setCurrentLv(1);
                     GameManager.getInstance().pushToStack(new Level1());
-                } else if(currentOption == 1) {
-
+                } else if(options[currentOption].equals(Helper.MENU_SCENE_ABOUT)) {
+                    GameManager.getInstance().pushToStack(new About());
+                } else if(options[currentOption].equals(Helper.MENU_SCENE_HELP)) {
+                    GameManager.getInstance().pushToStack(new Help());
+                } else if(options[currentOption].equals(Helper.MENU_SCENE_EXIT)) {
+                    System.exit(0);
                 }
                break;
            }

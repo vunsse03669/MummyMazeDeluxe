@@ -29,10 +29,10 @@ public class Player extends GameObject implements Subject {
     private Cell [][]currentMap;
     private int numberMove;
 
-    private boolean canMoveRight = true;
-    private boolean canMoveLeft = true;
-    private boolean canMoveTop  = true;
-    private boolean canMoveBottom = true;
+    private boolean canMoveRight;
+    private boolean canMoveLeft;
+    private boolean canMoveTop ;
+    private boolean canMoveBottom;
 
     private static Player instance;
 
@@ -48,6 +48,7 @@ public class Player extends GameObject implements Subject {
     private Player(int px, int py) {
         this.px = px;
         this.py = py;
+
         numberMove = 0;
         moveDirection = Helper.STOP;
 
@@ -193,7 +194,7 @@ public class Player extends GameObject implements Subject {
             setMoveDirection(Helper.STOP);
             notifyObserver();
             increaseMove();
-           checkCollision(px,py);
+            checkCollision(px,py);
 
         }
 

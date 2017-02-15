@@ -69,6 +69,14 @@ public class Mummy extends GameObject implements MummyObserver {
         return py;
     }
 
+    public void setPx(int px) {
+        this.px = px;
+    }
+
+    public void setPy(int py) {
+        this.py = py;
+    }
+
     public void setMoveStep(int moveStep) {
         this.moveStep = moveStep;
     }
