@@ -2,6 +2,7 @@ package Controller;
 
 import Helper.Helper;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -35,7 +36,11 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
         return instance;
     }
 
+
     private void setGame() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setResizable(false);
         this.setTitle(Helper.GAME_TITLE);
         this.setSize(Helper.WINDOW_WIDTH,Helper.WINDOW_HEIGHT);
         this.setVisible(true);

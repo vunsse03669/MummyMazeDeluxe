@@ -1,6 +1,7 @@
 package View.GamePlay;
 
 import Controller.GameManager;
+import Controller.GameWindow;
 import Controller.SoundManager;
 import Helper.Helper;
 import Model.Cell;
@@ -12,6 +13,7 @@ import View.GameOver;
 import View.Scene;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -63,6 +65,7 @@ public class Level1 extends Scene {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void draw(Graphics g) {
