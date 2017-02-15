@@ -13,6 +13,8 @@ public abstract class GameObject {
     protected BufferedImage sprite;
     protected int px;
     protected int py;
+    protected int tmpPx;
+    protected int tmpPy;
 
     public abstract void draw(Graphics g);
     public abstract void move();

@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="60" selection-start-line="90" selection-start-column="8" selection-end-line="91" selection-end-column="60" />
+              <caret line="161" column="30" selection-start-line="161" selection-start-column="30" selection-end-line="161" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -39,17 +39,32 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Object/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="26" />
+              <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuScene.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/MenuScene.java">
+      <file leaf-file-name="Mummy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Object/Mummy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="82" column="76" selection-start-line="82" selection-start-column="76" selection-end-line="82" selection-end-column="76" />
+              <caret line="234" column="29" selection-start-line="234" selection-start-column="29" selection-end-line="234" selection-end-column="29" />
+              <folding>
+                <element signature="method#move#0;class#Mummy#0" expanded="false" />
+                <element signature="method#update#0;class#Mummy#0" expanded="false" />
+                <element signature="e#3226#3227#0" expanded="true" />
+                <element signature="e#3265#3266#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Object/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -58,8 +73,8 @@
       <file leaf-file-name="Level5.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level5.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22311397">
-              <caret line="88" column="60" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.752809">
+              <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
+              <caret line="155" column="5" selection-start-line="151" selection-start-column="4" selection-end-line="155" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -103,7 +118,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level4.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="60" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+              <caret line="154" column="5" selection-start-line="150" selection-start-column="4" selection-end-line="154" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level3.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="60" selection-start-line="90" selection-start-column="60" selection-end-line="90" selection-end-column="60" />
+              <caret line="157" column="5" selection-start-line="153" selection-start-column="4" selection-end-line="157" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,14 +180,14 @@
         <option value="$PROJECT_DIR$/src/Controller/GameWindow.java" />
         <option value="$PROJECT_DIR$/src/View/About.java" />
         <option value="$PROJECT_DIR$/src/View/Help.java" />
-        <option value="$PROJECT_DIR$/src/Model/Object/Mummy.java" />
         <option value="$PROJECT_DIR$/src/Model/Position.java" />
-        <option value="$PROJECT_DIR$/src/Model/Object/Player.java" />
-        <option value="$PROJECT_DIR$/src/Model/Object/GameObject.java" />
         <option value="$PROJECT_DIR$/src/Helper/Helper.java" />
         <option value="$PROJECT_DIR$/src/View/MenuScene.java" />
         <option value="$PROJECT_DIR$/src/Controller/GameManager.java" />
         <option value="$PROJECT_DIR$/src/View/GameOver.java" />
+        <option value="$PROJECT_DIR$/src/Model/Object/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/Model/Object/Mummy.java" />
+        <option value="$PROJECT_DIR$/src/Model/Object/Player.java" />
         <option value="$PROJECT_DIR$/src/View/GamePlay/Level1.java" />
         <option value="$PROJECT_DIR$/src/View/GamePlay/Level2.java" />
         <option value="$PROJECT_DIR$/src/View/GamePlay/Level3.java" />
@@ -736,7 +751,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -812,7 +827,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="77" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1097,30 +1112,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Object/Mummy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <element signature="method#move#0;class#Mummy#0" expanded="false" />
-            <element signature="method#update#0;class#Mummy#0" expanded="false" />
-            <element signature="e#3205#3206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Object/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1149,14 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Object/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/GameOver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1167,10 +1154,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Object/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Object/Mummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="234" column="29" selection-start-line="234" selection-start-column="29" selection-end-line="234" selection-end-column="29" />
+          <folding>
+            <element signature="method#move#0;class#Mummy#0" expanded="false" />
+            <element signature="method#update#0;class#Mummy#0" expanded="false" />
+            <element signature="e#3226#3227#0" expanded="true" />
+            <element signature="e#3265#3266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Object/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="60" selection-start-line="90" selection-start-column="8" selection-end-line="91" selection-end-column="60" />
+          <caret line="161" column="30" selection-start-line="161" selection-start-column="30" selection-end-line="161" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1178,7 +1194,7 @@
     <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
+          <caret line="155" column="5" selection-start-line="151" selection-start-column="4" selection-end-line="155" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1186,7 +1202,7 @@
     <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level3.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="60" selection-start-line="90" selection-start-column="60" selection-end-line="90" selection-end-column="60" />
+          <caret line="157" column="5" selection-start-line="153" selection-start-column="4" selection-end-line="157" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1196,7 +1212,7 @@
     <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level4.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="60" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+          <caret line="154" column="5" selection-start-line="150" selection-start-column="4" selection-end-line="154" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1205,8 +1221,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/GamePlay/Level5.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22311397">
-          <caret line="88" column="60" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.752809">
+          <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -34,6 +34,8 @@ public class Player extends GameObject implements Subject {
     private boolean canMoveTop ;
     private boolean canMoveBottom;
 
+    private int count = 0;
+
     private static Player instance;
 
 
@@ -48,6 +50,9 @@ public class Player extends GameObject implements Subject {
     private Player(int px, int py) {
         this.px = px;
         this.py = py;
+
+        this.tmpPx = this.px;
+        this.tmpPy = this.py;
 
         numberMove = 0;
         moveDirection = Helper.STOP;
@@ -106,13 +111,33 @@ public class Player extends GameObject implements Subject {
         numberMove++;
     }
 
+    public void decreaseMove() {numberMove--;}
+
     public void setNumberMove(int numberMove) {
         this.numberMove = numberMove;
     }
 
     public int getNumberMove() {return numberMove;}
 
+    private void savePosition() {
+        this.tmpPx = this.px;
+        this.tmpPy = this.py;
+        System.out.println("tmpx: " + Helper.getOx(tmpPx) + " tmpy: " + Helper.getOy(tmpPy));
+    }
+
+    public void returnPreviousPosition() {
+        setPx(tmpPx);
+        setPy(tmpPy);
+    }
+
     public void setMoveDirection(int direction) {
+
+        if(count == 0)
+            savePosition();
+
+        count ++;
+        if(count == 2)
+            count = 0;
 
         switch (direction){
             case Helper.MOVE_BOTTOM_DIRECTION:{

@@ -37,6 +37,8 @@ public class Mummy extends GameObject implements MummyObserver {
     public Mummy(int px, int py) {
         this.px = px;
         this.py = py;
+        this.tmpPx = this.px;
+        this.tmpPy = this.py;
         moveRange = 0;
         moveStep = 0;
         moveDirection = Helper.STOP;
@@ -145,8 +147,10 @@ public class Mummy extends GameObject implements MummyObserver {
         if(moveRange >= Helper.MOVE_RANGE + 1){
             moveRange = 0;
             checkCollision(px,py);
+            if(moveStep == 0) {
+                savePosition();
+            }
             moveStep ++;
-            System.out.println("move step "+moveStep);
             setMoveDirection(Helper.STOP);
             findDirection(playerOX, playerOY);
         }
@@ -219,6 +223,16 @@ public class Mummy extends GameObject implements MummyObserver {
         }else{
             canMoveBottom = true;
         }
+    }
+
+    private void savePosition() {
+        this.tmpPx = this.px;
+        this.tmpPy = this.py;
+    }
+
+    public void returnPreviousPosition() {
+        this.px = this.tmpPx;
+        this.py = this.tmpPy;
     }
 
     private void findDirection(int playerOX, int playerOY){

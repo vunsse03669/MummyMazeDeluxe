@@ -140,7 +140,18 @@ public class Level4 extends Scene {
                     resetLevel();
                     break;
                 }
+
+                case KeyEvent.VK_Z: {
+                    returnPreviousPosition();
+                    break;
+                }
             }
+    }
+
+    private void returnPreviousPosition() {
+        player.returnPreviousPosition();
+        mummy.returnPreviousPosition();
+        player.decreaseMove();
     }
 
     private void resetLevel() {
