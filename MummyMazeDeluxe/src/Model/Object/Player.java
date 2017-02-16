@@ -3,6 +3,7 @@ package Model.Object;
 import Helper.Helper;
 import Model.Animation;
 import Model.Cell;
+import Model.Position;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -11,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created by Mr Hung on 2/8/2017.
@@ -28,6 +30,7 @@ public class Player extends GameObject implements Subject {
     private int moveRange = 0;
     private Cell [][]currentMap;
     private int numberMove;
+    private Stack<Position>moveHistory = new Stack<>();;
 
     private boolean canMoveRight;
     private boolean canMoveLeft;
@@ -53,6 +56,8 @@ public class Player extends GameObject implements Subject {
 
         this.tmpPx = this.px;
         this.tmpPy = this.py;
+
+        moveHistory.push(new Position(this.tmpPx,this.tmpPy));
 
         numberMove = 0;
         moveDirection = Helper.STOP;
@@ -122,12 +127,19 @@ public class Player extends GameObject implements Subject {
     private void savePosition() {
         this.tmpPx = this.px;
         this.tmpPy = this.py;
+        moveHistory.push(new Position(this.tmpPx,this.tmpPy));
         System.out.println("tmpx: " + Helper.getOx(tmpPx) + " tmpy: " + Helper.getOy(tmpPy));
     }
 
     public void returnPreviousPosition() {
-        setPx(tmpPx);
-        setPy(tmpPy);
+        if(moveHistory.size() > 1) {
+            setPx(moveHistory.peek().px);
+            setPy(moveHistory.peek().py);
+            reset();
+            moveHistory.pop();
+            decreaseMove();
+        }
+
     }
 
     public void setMoveDirection(int direction) {

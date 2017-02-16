@@ -46,9 +46,9 @@ public class SoundManager {
     }
 
     private void makeListSong() {
-        listSong.push(Helper.LV3_SOUND_SRC);
-        listSong.push(Helper.LV2_SOUND_SRC);
         listSong.push(Helper.LV1_SOUND_SRC);
+        listSong.push(Helper.LV2_SOUND_SRC);
+        listSong.push(Helper.LV3_SOUND_SRC);
     }
 
 

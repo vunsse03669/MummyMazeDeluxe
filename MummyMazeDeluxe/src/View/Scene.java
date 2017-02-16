@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
  */
 public abstract class Scene {
     protected BufferedImage background;
+    protected BufferedImage menu;
     public abstract void draw(Graphics g);
     public abstract void update();
     public abstract void keyPressed(int k);

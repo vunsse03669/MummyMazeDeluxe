@@ -3,12 +3,14 @@ package Model.Object;
 import Helper.Helper;
 import Model.Animation;
 import Model.Cell;
+import Model.Position;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Stack;
 
 /**
  * Created by Mr Hung on 2/11/2017.
@@ -19,6 +21,8 @@ public class Mummy extends GameObject implements MummyObserver {
     private Animation moveRight;
     private Animation moveTop;
     private Animation moveBottom;
+
+    private Stack<Position>moveHistory = new Stack<>();
 
     private int moveStep;
     private int moveRange;
@@ -39,6 +43,7 @@ public class Mummy extends GameObject implements MummyObserver {
         this.py = py;
         this.tmpPx = this.px;
         this.tmpPy = this.py;
+        moveHistory.push(new Position(this.tmpPx,this.tmpPy));
         moveRange = 0;
         moveStep = 0;
         moveDirection = Helper.STOP;
@@ -228,11 +233,16 @@ public class Mummy extends GameObject implements MummyObserver {
     private void savePosition() {
         this.tmpPx = this.px;
         this.tmpPy = this.py;
+        moveHistory.push(new Position(this.tmpPx,this.tmpPy));
     }
 
     public void returnPreviousPosition() {
-        this.px = this.tmpPx;
-        this.py = this.tmpPy;
+
+        if(moveHistory.size() > 1) {
+            setPx(moveHistory.peek().px);
+            setPy(moveHistory.peek().py);
+            moveHistory.pop();
+        }
     }
 
     private void findDirection(int playerOX, int playerOY){

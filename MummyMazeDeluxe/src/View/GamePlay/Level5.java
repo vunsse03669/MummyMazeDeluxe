@@ -54,6 +54,7 @@ public class Level5 extends Scene{
             wallTop = ImageIO.read(new File(Helper.WALL_TOP_SRC));
             wallRight = ImageIO.read(new File(Helper.WALL_RIGHT_SRC));
             wallLeft = ImageIO.read(new File(Helper.WALL_LEFT_SRC));
+            menu = ImageIO.read(new File(Helper.MENU_LV5));
         }catch(IOException e) {
             e.printStackTrace();
         }
@@ -87,6 +88,7 @@ public class Level5 extends Scene{
         g.setFont(new Font(Helper.MENU_FONT_FAMILY, Font.PLAIN,20));
         g.drawString("MOVE STEP: " + (totalStep - player.getNumberMove()), 220/2 - fontWidth/2, 160);
         g.drawString("LEVEL" + gsm.getCurrentLv(), 80, 100);
+        g.drawImage(menu,50,250,null);
     }
 
     @Override
@@ -107,7 +109,7 @@ public class Level5 extends Scene{
                 && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
                 && !player.isMoving && !mummy.isMoving) {
             gsm.popToStack();
-            gsm.pushToStack(new Level1());
+            gsm.pushToStack(new EndGame());
         }
     }
 
@@ -150,7 +152,6 @@ public class Level5 extends Scene{
     private void returnPreviousPosition() {
         player.returnPreviousPosition();
         mummy.returnPreviousPosition();
-        player.decreaseMove();
     }
 
     private void resetLevel() {

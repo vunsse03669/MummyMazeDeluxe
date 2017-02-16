@@ -36,6 +36,7 @@ public class Helper {
     public static final String MENU_FONT_FAMILY = "Arial Black";
     public static final int MENU_DISTANCE_LINE = 60;
 
+    public static final String TREASURE_SRC = "resource/image/treasure.png";
     public static final String MENU_BACKGROUND_SRC = "resource/image/title.jpg";
     public static final String ABOUT_BACKGROUND_SRC = "resource/image/about.png";
     public static final String HELP_BACKGROUND_SRC = "resource/image/help.png";
@@ -45,6 +46,12 @@ public class Helper {
     public static final String PLAYER_SPRITE_SRC = "resource/image/player_sprite.png";
 
     public static final String FLAG_SPRITE_SRC = "resource/image/flag.png";
+
+    public static final String MENU_LV1 = "resource/image/menu_level1.png";
+    public static final String MENU_LV2 = "resource/image/menu_level2.png";
+    public static final String MENU_LV3 = "resource/image/menu_level3.png";
+    public static final String MENU_LV4 = "resource/image/menu_level4.png";
+    public static final String MENU_LV5 = "resource/image/menu_level5.png";
 
     public static final String MUMMY_SPRITE_SHEET_SRC = "resource/image/mummy_white.png";
     public static final String MUMMY_SPRITE_SRC = "resource/image/mummy_sprite.png";
