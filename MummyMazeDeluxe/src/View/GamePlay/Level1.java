@@ -44,7 +44,7 @@ public class Level1 extends Scene {
 
             mummy = new Mummy(Helper.getPx(1),Helper.getPy(5));
             flag = new Flag(Helper.getPx(5),Helper.getPy(3));
-            totalStep = 10;
+            totalStep = 8;
 
             player.registerObserver(mummy);
             player.setMap(map);
@@ -119,6 +119,7 @@ public class Level1 extends Scene {
 
             gsm.popToStack();
             gsm.setCurrentLv(2);
+            player.resetMoveHistory();
             gsm.pushToStack(new Level2());
         }
     }

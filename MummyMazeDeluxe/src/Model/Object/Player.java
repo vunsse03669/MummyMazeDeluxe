@@ -88,6 +88,10 @@ public class Player extends GameObject implements Subject {
         canMoveLeft = true;
     }
 
+    public void resetMoveHistory() {
+        moveHistory.clear();
+    }
+
     public void setMap(Cell [][]map) {
         this.currentMap = map;
     }

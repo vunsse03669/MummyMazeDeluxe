@@ -40,7 +40,7 @@ public class Level2 extends Scene {
             player.setPx(Helper.getPx(2));
             player.setPy(Helper.getPy(4));
             player.setNumberMove(0);
-            totalStep = 15;
+            totalStep = 10;
 
             mummy = new Mummy(Helper.getPx(5),Helper.getPy(1));
             flag = new Flag(Helper.getPx(4),Helper.getPy(1));
@@ -109,6 +109,7 @@ public class Level2 extends Scene {
         if(Helper.getOx(flag.getPx()) == Helper.getOx(player.getPX())
                 && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
                 && !player.isMoving && !mummy.isMoving) {
+            player.resetMoveHistory();
             gsm.popToStack();
             gsm.setCurrentLv(3);
             gsm.pushToStack(new Level3());

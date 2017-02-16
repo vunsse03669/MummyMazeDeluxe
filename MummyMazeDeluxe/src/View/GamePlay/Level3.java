@@ -114,6 +114,7 @@ public class Level3 extends Scene {
                 && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
                 && !player.isMoving && !mummy.isMoving) {
             player.reset();
+            player.resetMoveHistory();
             gsm.popToStack();
             gsm.setCurrentLv(4);
             gsm.pushToStack(new Level4());

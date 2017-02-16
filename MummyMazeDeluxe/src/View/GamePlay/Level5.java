@@ -108,6 +108,7 @@ public class Level5 extends Scene{
         if(Helper.getOx(flag.getPx()) == Helper.getOx(player.getPX())
                 && Helper.getOy(flag.getPy()) == Helper.getOy(player.getPY())
                 && !player.isMoving && !mummy.isMoving) {
+            player.resetMoveHistory();
             gsm.popToStack();
             gsm.pushToStack(new EndGame());
         }
